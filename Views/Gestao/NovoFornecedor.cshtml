@@ -1,0 +1,26 @@
+@model Sismarket.DTO.FornecedorDTO
+
+@{
+    Layout = "_LayoutAdmin";
+}
+<h3>Novo Fornecedor</h3>
+<hr/>
+<form class="form-horizontal" asp-controller="Fornecedores" asp-action="Salvar" method="POST">
+    
+    <input type="hidden" asp-for="Id" value="0">
+
+    <label asp-for="Nome">Nome</label>
+    <input type="text" asp-for="Nome" class="form-control" placeholder="Nome da Fornecedor">
+    <span asp-validation-for="Nome"></span><br>
+
+    <label asp-for="Email">E-mail</label>
+    <input type="email" asp-for="Email" class="form-control" placeholder="email@dofornecedor.com">
+    <span asp-validation-for="Email"></span><br>
+
+    <label asp-for="Telefone">Telefone</label>
+    <input asp-for="Telefone" class="form-control" placeholder="98 7654-3210">
+    <span asp-validation-for="Telefone"></span><br>
+
+    <button class="btn btn-success">Cadastrar</button>
+
+</form>

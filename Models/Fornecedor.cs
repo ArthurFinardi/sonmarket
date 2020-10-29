@@ -1,4 +1,4 @@
-namespace sismarket.Models
+namespace Sismarket.Models
 {
     public class Fornecedor
     {
@@ -6,6 +6,6 @@ namespace sismarket.Models
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Telefone { get; set; }
-
+        public bool Status { get; set; }
     }
 }

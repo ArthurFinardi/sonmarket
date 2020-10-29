@@ -20,13 +20,20 @@
   <!-- Custom styles for this template-->
   <link href="~/css/sb-admin.css" rel="stylesheet">
 
+  <!-- Carregamento do JQuery-->
+  <script src="~/vendor/jquery/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  
+  <!-- Core plugin JavaScript-->
+  <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+
 </head>
 
 <body id="page-top">
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
+    <a class="navbar-brand mr-1" href="index.html">Sismarket</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -92,13 +99,13 @@
       <li class="nav-item">
         <a class="nav-link" href="index.html">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span>
+          <span>Painel</span>
         </a>
       </li>
-      <li class="nav-item dropdown">
+      @* <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
+          <span>Produtos</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Login Screens:</h6>
@@ -110,16 +117,31 @@
           <a class="dropdown-item" href="404.html">404 Page</a>
           <a class="dropdown-item active" href="blank.html">Blank Page</a>
         </div>
-      </li>
+      </li> *@
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+          <span>Clientes</span></a>
+      </li>            
+      <li class="nav-item">
+        <a class="nav-link" asp-action="Categorias" asp-controller="Gestao">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Categorias</span></a>
+      </li>      
+      <li class="nav-item">
+        <a class="nav-link" asp-action="Fornecedores" asp-controller="Gestao">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Fornecedores</span></a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" asp-action="Produtos" asp-controller="Gestao">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Produtos</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="tables.html">
           <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+          <span>Funcionários</span></a>
       </li>
     </ul>
 
@@ -127,27 +149,27 @@
 
       <div class="container-fluid">
 
-        <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
+         <!-- Breadcrumbs
+         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="index.html">Dashboard</a>
           </li>
           <li class="breadcrumb-item active">Blank Page</li>
-        </ol>
+        </ol> --> 
 
         <!-- Page Content -->
-
+        @RenderBody()
       </div>
       <!-- /.container-fluid -->
 
-      <!-- Sticky Footer -->
+      <!-- Sticky Footer 
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright © Your Website 2019</span>
           </div>
         </div>
-      </footer>
+      </footer>-->
 
     </div>
     <!-- /.content-wrapper -->
@@ -180,11 +202,7 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="~/vendor/jquery/jquery.min.js"></script>
   <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="~/js/sb-admin.min.js"></script>

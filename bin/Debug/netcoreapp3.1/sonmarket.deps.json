@@ -22,7 +22,7 @@
     },
     "targets": {
         ".NETCoreApp,Version=v3.1": {
-            "sismarket/1.0.0": {
+            "Sismarket/1.0.0": {
                 "dependencies": {
                     "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.8",
                     "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.8",
@@ -294,10 +294,10 @@
                     "WindowsBase": "4.0.0.0"
                 },
                 "runtime": {
-                    "sismarket.dll": {}
+                    "Sismarket.dll": {}
                 },
                 "compile": {
-                    "sismarket.dll": {}
+                    "Sismarket.dll": {}
                 }
             },
             "Microsoft.AspNetCore.Cryptography.Internal/3.1.8": {
@@ -3036,7 +3036,7 @@
         }
     },
     "libraries": {
-        "sismarket/1.0.0": {
+        "Sismarket/1.0.0": {
             "type": "project",
             "serviceable": false,
             "sha512": ""

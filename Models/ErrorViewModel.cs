@@ -1,6 +1,6 @@
 using System;
 
-namespace sismarket.Models
+namespace Sismarket.Models
 {
     public class ErrorViewModel
     {

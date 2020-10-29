@@ -1,6 +1,5 @@
 using System;
-
-namespace sismarket.Models
+namespace Sismarket.Models
 {
     public class Saida
     {
@@ -8,5 +7,7 @@ namespace sismarket.Models
         public Produto Produto { get; set; }
         public float ValorDeVenda { get; set; }
         public DateTime Data { get; set; }
+        public Venda Venda { get; set; }
+        public Cliente Cliente { get; set; }
     }
 }

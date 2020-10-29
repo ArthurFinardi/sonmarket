@@ -12,13 +12,13 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-sismarket-2C32A933-72AC-455E-B9DD-96864083D25B")]
-[assembly: System.Reflection.AssemblyCompanyAttribute("sismarket")]
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-Sismarket-2C32A933-72AC-455E-B9DD-96864083D25B")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Sismarket")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("sismarket")]
-[assembly: System.Reflection.AssemblyTitleAttribute("sismarket")]
+[assembly: System.Reflection.AssemblyProductAttribute("Sismarket")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Sismarket")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.

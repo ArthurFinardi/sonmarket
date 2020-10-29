@@ -1,4 +1,4 @@
-namespace sismarket.Models
+namespace Sismarket.Models
 {
     public class Promocao
     {
@@ -6,6 +6,6 @@ namespace sismarket.Models
         public string Nome { get; set; }
         public Produto Produto { get; set; }
         public float Porcentagem { get; set; }
-        public bool Status { get; set; }
+        public bool Status { get; set; }       
     }
 }

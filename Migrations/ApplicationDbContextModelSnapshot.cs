@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using sismarket.Data;
+using Sismarket.Data;
 
-namespace sismarket.Data.Migrations
+namespace Sismarket.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201020032430_CreateSisMarketSchema")]
-    partial class CreateSisMarketSchema
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -221,7 +219,7 @@ namespace sismarket.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("sismarket.Models.Categoria", b =>
+            modelBuilder.Entity("Sismarket.Models.Categoria", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -231,12 +229,51 @@ namespace sismarket.Data.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.ToTable("Categorias");
                 });
 
-            modelBuilder.Entity("sismarket.Models.Estoque", b =>
+            modelBuilder.Entity("Sismarket.Models.Cliente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Bairro")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cpf")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DtNascimento")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Endereco")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Telefone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Clientes");
+                });
+
+            modelBuilder.Entity("Sismarket.Models.Estoque", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -256,7 +293,7 @@ namespace sismarket.Data.Migrations
                     b.ToTable("Estoques");
                 });
 
-            modelBuilder.Entity("sismarket.Models.Fornecedor", b =>
+            modelBuilder.Entity("Sismarket.Models.Fornecedor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -269,6 +306,9 @@ namespace sismarket.Data.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Telefone")
                         .HasColumnType("nvarchar(max)");
 
@@ -277,7 +317,43 @@ namespace sismarket.Data.Migrations
                     b.ToTable("Fornecedores");
                 });
 
-            modelBuilder.Entity("sismarket.Models.Produto", b =>
+            modelBuilder.Entity("Sismarket.Models.Funcionario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Bairro")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cargo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cpf")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DtNascimento")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Endereco")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Salario")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Telefone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Funcionarios");
+                });
+
+            modelBuilder.Entity("Sismarket.Models.Produto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -291,9 +367,6 @@ namespace sismarket.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("Medicao")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MyProperty")
                         .HasColumnType("int");
 
                     b.Property<string>("Nome")
@@ -317,7 +390,7 @@ namespace sismarket.Data.Migrations
                     b.ToTable("Produtos");
                 });
 
-            modelBuilder.Entity("sismarket.Models.Promocao", b =>
+            modelBuilder.Entity("Sismarket.Models.Promocao", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -343,12 +416,15 @@ namespace sismarket.Data.Migrations
                     b.ToTable("Promocoes");
                 });
 
-            modelBuilder.Entity("sismarket.Models.Saida", b =>
+            modelBuilder.Entity("Sismarket.Models.Saida", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ClienteId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime2");
@@ -359,14 +435,21 @@ namespace sismarket.Data.Migrations
                     b.Property<float>("ValorDeVenda")
                         .HasColumnType("real");
 
+                    b.Property<int?>("VendaId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("ClienteId");
+
                     b.HasIndex("ProdutoId");
+
+                    b.HasIndex("VendaId");
 
                     b.ToTable("Saidas");
                 });
 
-            modelBuilder.Entity("sismarket.Models.Venda", b =>
+            modelBuilder.Entity("Sismarket.Models.Venda", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -375,6 +458,9 @@ namespace sismarket.Data.Migrations
 
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("FuncionarioId")
+                        .HasColumnType("int");
 
                     b.Property<float>("Total")
                         .HasColumnType("real");
@@ -386,6 +472,8 @@ namespace sismarket.Data.Migrations
                         .HasColumnType("real");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FuncionarioId");
 
                     b.ToTable("Vendas");
                 });
@@ -441,36 +529,51 @@ namespace sismarket.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("sismarket.Models.Estoque", b =>
+            modelBuilder.Entity("Sismarket.Models.Estoque", b =>
                 {
-                    b.HasOne("sismarket.Models.Produto", "Produto")
+                    b.HasOne("Sismarket.Models.Produto", "Produto")
                         .WithMany()
                         .HasForeignKey("ProdutoId");
                 });
 
-            modelBuilder.Entity("sismarket.Models.Produto", b =>
+            modelBuilder.Entity("Sismarket.Models.Produto", b =>
                 {
-                    b.HasOne("sismarket.Models.Categoria", "Categoria")
+                    b.HasOne("Sismarket.Models.Categoria", "Categoria")
                         .WithMany()
                         .HasForeignKey("CategoriaId");
 
-                    b.HasOne("sismarket.Models.Fornecedor", "Fornecedor")
+                    b.HasOne("Sismarket.Models.Fornecedor", "Fornecedor")
                         .WithMany()
                         .HasForeignKey("FornecedorId");
                 });
 
-            modelBuilder.Entity("sismarket.Models.Promocao", b =>
+            modelBuilder.Entity("Sismarket.Models.Promocao", b =>
                 {
-                    b.HasOne("sismarket.Models.Produto", "Produto")
+                    b.HasOne("Sismarket.Models.Produto", "Produto")
                         .WithMany()
                         .HasForeignKey("ProdutoId");
                 });
 
-            modelBuilder.Entity("sismarket.Models.Saida", b =>
+            modelBuilder.Entity("Sismarket.Models.Saida", b =>
                 {
-                    b.HasOne("sismarket.Models.Produto", "Produto")
+                    b.HasOne("Sismarket.Models.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteId");
+
+                    b.HasOne("Sismarket.Models.Produto", "Produto")
                         .WithMany()
                         .HasForeignKey("ProdutoId");
+
+                    b.HasOne("Sismarket.Models.Venda", "Venda")
+                        .WithMany()
+                        .HasForeignKey("VendaId");
+                });
+
+            modelBuilder.Entity("Sismarket.Models.Venda", b =>
+                {
+                    b.HasOne("Sismarket.Models.Funcionario", "Funcionario")
+                        .WithMany()
+                        .HasForeignKey("FuncionarioId");
                 });
 #pragma warning restore 612, 618
         }

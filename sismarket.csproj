@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>aspnet-sismarket-2C32A933-72AC-455E-B9DD-96864083D25B</UserSecretsId>
+    <UserSecretsId>aspnet-Sismarket-2C32A933-72AC-455E-B9DD-96864083D25B</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

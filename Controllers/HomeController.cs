@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using sismarket.Models;
+using Sismarket.Models;
 
-namespace sismarket.Controllers
+namespace Sismarket.Controllers
 {
     public class HomeController : Controller
     {

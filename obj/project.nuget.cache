@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PKDG5tqU5OMYyQXC9YWifORKknWJZcYIzWef1qmel7OdXa72x2ml+znHSoD+cxtfKuOJWmA7Ih/IpZbpDwDyTg==",
+  "dgSpecHash": "/6PzW8cHDxURu8cafdi2q5V8iX/enz6f7n6m5sXaffUhKFaAuJd3lMHjlAA2arFhS0zk8x8d8W2P17xzIWqU9g==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\Sismarket\\sismarket.csproj",
+  "projectFilePath": "C:\\projetos\\Sismarket\\Sismarket.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Arthur Finardi\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.8\\microsoft.aspnetcore.cryptography.internal.3.1.8.nupkg.sha512",
     "C:\\Users\\Arthur Finardi\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.8\\microsoft.aspnetcore.cryptography.keyderivation.3.1.8.nupkg.sha512",

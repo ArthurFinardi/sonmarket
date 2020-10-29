@@ -1,17 +1,17 @@
 {
     "format": 1,
     "restore": {
-        "C:\\projetos\\sismarket\\sismarket.csproj": {}
+        "C:\\projetos\\Sismarket\\Sismarket.csproj": {}
     },
     "projects": {
-        "C:\\projetos\\sismarket\\sismarket.csproj": {
+        "C:\\projetos\\Sismarket\\Sismarket.csproj": {
             "version": "1.0.0",
             "restore": {
-                "projectUniqueName": "C:\\projetos\\sismarket\\sismarket.csproj",
-                "projectName": "sismarket",
-                "projectPath": "C:\\projetos\\sismarket\\sismarket.csproj",
+                "projectUniqueName": "C:\\projetos\\Sismarket\\Sismarket.csproj",
+                "projectName": "Sismarket",
+                "projectPath": "C:\\projetos\\Sismarket\\Sismarket.csproj",
                 "packagesPath": "C:\\Users\\Arthur Finardi\\.nuget\\packages\\",
-                "outputPath": "C:\\projetos\\sismarket\\obj\\",
+                "outputPath": "C:\\projetos\\Sismarket\\obj\\",
                 "projectStyle": "PackageReference",
                 "fallbackFolders": [
                     "C:\\Microsoft\\Xamarin\\NuGet\\"
