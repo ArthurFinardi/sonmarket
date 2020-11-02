@@ -1,8 +1,77 @@
+@model IEnumerable<Sismarket.Models.Produto>
 @{
     Layout = "_LayoutAdmin";
 }
 
+<script >
+    $(document).ready( function () {
+        $('#produto').DataTable({
+            "info" : false,
+            "language": {
+                "lengthMenu": "Mostrando _MENU_ registros por página",
+                "zeroRecords": "Desculpa, nada encontrado.",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "Nenhum registro disponível",
+                "search":           "Buscar:",
+                "paginate":{
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": "Próximo",
+                    "previous": "Anterior"
+                } 
+            }
+        });
+    } );
+</script>
+
 <h2>Produtos</h2>
+<a asp-action="NovoProduto" asp-controller="Gestao" class="btn btn-success">Criar novo Produto</a>
 <hr/>
-<a asp-action="NovoProduto" asp-controller="Gestao" class="btn btn-success">Criar novo produto</a>
-<hr/>
+
+<table id="produto" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Categoria</th>
+            <th>Fornecedor</th>
+            <th>Preço de Custo</th>
+            <th>Preço de Venda</th>
+            <th>Medição</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var produto in Model)
+        {
+            <tr>
+                <td>@produto.Id</td>
+                <td>@produto.Nome</td>
+                <td>@produto.Categoria.Nome</td>
+                <td>@produto.Fornecedor.Nome</td>
+                @* <td>@Html.DisplayFor(modelItem => produto.Categoria.Nome)</td>
+                <td>@Html.DisplayFor(modelItem => produto.Fornecedor.Nome)</td> *@
+                <td>@produto.PrecodeCusto</td>
+                <td>@produto.PrecodeVenda</td>
+                <td>
+                    @if(@produto.Medicao == 0){
+                        <span>Litro</span>
+                    }
+                    else if(@produto.Medicao == 1){
+                        <span>Kg</span>
+                    }
+                    else{
+                        <span>Unidade</span>
+                    }
+                </td>
+                <td><a class="btn btn-primary" href="../Gestao/EditarProduto/@produto.Id">Editar</a>
+                
+                <form asp-action="Deletar" asp-controller="Produtos" style="display: inline;">
+                    <input type="hidden" name="id" id="id" value="@produto.Id"> 
+                    <button class="btn btn-danger">Deletar</button>
+                </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

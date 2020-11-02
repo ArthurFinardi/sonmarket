@@ -1,6 +1,59 @@
+@model IEnumerable<Sismarket.Models.Fornecedor>
 @{
     Layout = "_LayoutAdmin";
 }
+
+<script >
+    $(document).ready( function () {
+        $('#fornecedores').DataTable({
+            "info" : false,
+            "language": {
+                "lengthMenu": "Mostrando _MENU_ registros por página",
+                "zeroRecords": "Desculpa, nada encontrado.",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "Nenhum registro disponível",
+                "search":           "Buscar:",
+                "paginate":{
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": "Próximo",
+                    "previous": "Anterior"
+                } 
+            }
+        });
+    } );
+</script>
+
 <h2>Fornecedores</h2>
 <a asp-action="NovoFornecedor" asp-controller="Gestao" class="btn btn-success">Criar novo Fornecedor</a>
 <hr/>
+
+<table id="fornecedores" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var fornecedor in Model)
+        {
+            <tr>
+                <td>@fornecedor.Id</td>
+                <td>@fornecedor.Nome</td>
+                <td>@fornecedor.Email</td>
+                <td>@fornecedor.Telefone</td>
+                <td><a class="btn btn-primary" href="/Gestao/EditarFornecedor/@fornecedor.Id">Editar</a>
+                
+                <form asp-action="Deletar" asp-controller="Fornecedores" style="display: inline;">
+                    <input type="hidden" name="id" id="id" value="@fornecedor.Id"> 
+                    <button class="btn btn-danger">Deletar</button>
+                </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

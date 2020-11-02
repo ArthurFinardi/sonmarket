@@ -18,14 +18,7 @@ namespace sismarket.Controllers
         public IActionResult Salvar(ProdutoDTO pProduto){
             if(ModelState.IsValid){
                 Produto produto = new Produto();
-                produto.Nome = pProduto.Nome;
-                //verifica se o Id passado no formulário é o mesmo ID buscado no BD
-                produto.Categoria = database.Categorias.First(categoria => categoria.Id == pProduto.CategoriaID);
-                produto.Fornecedor = database.Fornecedores.First(fornecedor => fornecedor.Id == pProduto.FornecedorID);
 
-                produto.PrecodeCusto = pProduto.PrecodeCusto;
-                produto.PrecodeCusto = pProduto.PrecodeVenda;
-                produto.Medicao = pProduto.Medicao;
                 produto.Status = true;
 
                 database.Produtos.Add(produto);
@@ -38,6 +31,30 @@ namespace sismarket.Controllers
 
                 return View("../Gestao/NovoProduto");
             }
+        }
+        public IActionResult Atualizar(ProdutoDTO pProduto){
+            if(ModelState.IsValid){
+                var produto = database.Produtos.First(p => p.Id == pProduto.Id);
+                produto.Nome = pProduto.Nome;
+                produto.Categoria = database.Categorias.First(categoria => categoria.Id == pProduto.CategoriaID);
+                produto.Fornecedor = database.Fornecedores.First(fornecedor => fornecedor.Id == pProduto.FornecedorID);
+
+                produto.PrecodeCusto = pProduto.PrecodeCusto;
+                produto.PrecodeVenda = pProduto.PrecodeVenda;
+                produto.Medicao = pProduto.Medicao;
+                database.SaveChanges();
+                return RedirectToAction("Produtos", "Gestao");
+            }else{
+                return RedirectToAction("Produtos", "Gestao");
+            }
+        }
+        public IActionResult Deletar(int id){
+            if(id > 0){
+                var produto = database.Produtos.First(p => p.Id == id);
+                produto.Status = false;
+                database.SaveChanges();
+            }
+            return RedirectToAction("Produtos", "Gestao");
         }
     }
 }

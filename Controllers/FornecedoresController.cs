@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Sismarket.Data;
 using Sismarket.DTO;
@@ -29,6 +30,30 @@ namespace Sismarket.Controllers
             }else{
                 return View("..Gestao/NovoFornecedor");
             }
+        }
+        [HttpPost]
+        public IActionResult Atualizar(FornecedorDTO pFornecedor){
+            if(ModelState.IsValid){
+                var fornecedor = database.Fornecedores.First(fornecedor => fornecedor.Id == pFornecedor.Id);
+                fornecedor.Nome = pFornecedor.Nome;
+                fornecedor.Email = pFornecedor.Email;
+                fornecedor.Telefone = pFornecedor.Telefone;
+
+                database.SaveChanges();
+                return RedirectToAction("Fornecedores", "Gestao");
+            }else{
+                return View("../Gestao/EditarFornecedor");
+            }
+        }
+        [HttpPost]
+        public IActionResult Deletar(int id){
+            if(id > 0){
+                var fornecedor = database.Fornecedores.First(fornecedor => fornecedor.Id == id);
+                fornecedor.Status = false;
+
+                database.SaveChanges();
+            }
+            return RedirectToAction("Fornecedores", "Gestao");
         }
     }
 }

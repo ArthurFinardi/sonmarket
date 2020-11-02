@@ -1,11 +1,11 @@
-@model IEnumerable<Sismarket.Models.Categoria>
+@model IEnumerable<Sismarket.Models.Promocao>
 @{
     Layout = "_LayoutAdmin";
 }
 
 <script >
     $(document).ready( function () {
-        $('#categorias').DataTable({
+        $('#promocao').DataTable({
             "info" : false,
             "language": {
                 "lengthMenu": "Mostrando _MENU_ registros por página",
@@ -24,28 +24,34 @@
     } );
 </script>
 
-<h2>Categorias</h2>
-<a asp-action="NovaCategoria" asp-controller="Gestao" class="btn btn-success">Criar nova Categoria</a>
+<h2>Promoções</h2>
+<a asp-action="NovaPromocao" asp-controller="Gestao" class="btn btn-success">Criar nova Promoção</a>
 <hr/>
 
-<table id="categorias" class="table table-striped table-bordered">
+<table id="promocao" class="table table-striped table-bordered">
     <thead>
         <tr>
             <th>Id</th>
             <th>Nome</th>
+            <th>Produto</th>
+            <th>Porcentagem</th>
             <th>Ações</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var categoria in Model)
+        @foreach (var promocao in Model)
         {
             <tr>
-                <td>@categoria.Id</td>
-                <td>@categoria.Nome</td>
-                <td><a class="btn btn-primary" href="/Gestao/EditarCategoria/@categoria.Id">Editar</a>
+                <td>@promocao.Id</td>
+                <td>@promocao.Nome</td>
+                <td>@promocao.Produto.Nome</td>
+                <td>@promocao.Porcentagem%</td>
+                @* <td>@Html.DisplayFor(modelItem => produto.Categoria.Nome)</td> *@
+            
+                <td><a class="btn btn-primary" href="/Gestao/EditarPromocao/@promocao.Id">Editar</a>
                 
-                <form asp-action="Deletar" asp-controller="Categorias" style="display: inline;">
-                    <input type="hidden" name="id" id="id" value="@categoria.Id"> 
+                <form style="display: inline;" asp-controller="Promocoes" asp-action="Deletar">
+                    <input type="hidden" name="id" id="id" value="@promocao.Id"> 
                     <button class="btn btn-danger">Deletar</button>
                 </form>
                 </td>

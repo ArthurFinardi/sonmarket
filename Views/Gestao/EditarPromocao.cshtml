@@ -1,0 +1,26 @@
+@model Sismarket.DTO.PromocaoDTO
+
+@{
+    Layout = "_LayoutAdmin";
+}
+<h3>Editar Promoção</h3>
+<hr/>
+<form method="POST" asp-controller="Promocoes" asp-action="Atualizar" >
+    
+    <input type="hidden" asp-for="Id">
+
+    <label asp-for="Nome">Nome</label>
+    <input type="text" asp-for="Nome" class="form-control" placeholder="Nome da Promoção">
+    <span asp-validation-for="Nome"></span><br>
+
+    <label asp-for="ProdutoID">Produto</label>
+    <select class="form-control" asp-for="ProdutoID" asp-items="@(new SelectList(@ViewBag.Produtos, "Id", "Nome"))"></select>
+    <br>
+
+    <label asp-for="Porcentagem">Porcentagem</label>
+    <input type="number" min="0" max="100" asp-for="Porcentagem" class="form-control" placeholder="10%">
+    <br>
+
+    <button class="btn btn-success">Atualizar</button>
+
+</form>
