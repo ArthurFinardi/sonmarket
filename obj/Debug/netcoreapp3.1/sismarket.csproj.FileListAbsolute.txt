@@ -105,3 +105,5 @@ C:\projetos\sismarket\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\EditarProduto.c
 C:\projetos\sismarket\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\NovaPromocao.cshtml.g.cs
 C:\projetos\sismarket\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\Promocoes.cshtml.g.cs
 C:\projetos\sismarket\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\EditarPromocao.cshtml.g.cs
+C:\projetos\sismarket\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\Estoque.cshtml.g.cs
+C:\projetos\sismarket\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\NovoEstoque.cshtml.g.cs

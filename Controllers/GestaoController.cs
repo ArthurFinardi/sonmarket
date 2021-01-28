@@ -93,5 +93,19 @@ namespace Sismarket.Controllers
             ViewBag.Produtos = database.Produtos.ToList();
             return View(promo);
         }
+        public IActionResult Estoque(){
+            //buscando produtos da lista de estoque
+            var listaEstoque = database.Estoques.Include(e => e.Produto).ToList();
+            return View(listaEstoque);
+        }
+        
+        public IActionResult NovoEstoque(){
+            ViewBag.Produtos = database.Produtos.ToList();
+            return View();
+        }
+
+        public IActionResult EditarEstoque(){
+            return Content("");
+        }
     }
 }

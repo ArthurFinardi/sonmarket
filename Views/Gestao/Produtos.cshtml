@@ -4,6 +4,7 @@
 }
 
 <script >
+    
     $(document).ready( function () {
         $('#produto').DataTable({
             "info" : false,
@@ -47,10 +48,10 @@
             <tr>
                 <td>@produto.Id</td>
                 <td>@produto.Nome</td>
-                <td>@produto.Categoria.Nome</td>
-                <td>@produto.Fornecedor.Nome</td>
-                @* <td>@Html.DisplayFor(modelItem => produto.Categoria.Nome)</td>
-                <td>@Html.DisplayFor(modelItem => produto.Fornecedor.Nome)</td> *@
+                @* <td>@produto.Categoria.Nome</td>
+                <td>@produto.Fornecedor.Nome</td> *@
+                <td>@Html.DisplayFor(modelItem => produto.Categoria.Nome)</td>
+                <td>@Html.DisplayFor(modelItem => produto.Fornecedor.Nome)</td>
                 <td>@produto.PrecodeCusto</td>
                 <td>@produto.PrecodeVenda</td>
                 <td>

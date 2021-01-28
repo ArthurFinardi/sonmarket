@@ -14462,8 +14462,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\projetos\\sismarket\\Views\\Gestao\\NovoEstoque.cshtml",
+      "TargetPath": "Views\\Gestao\\NovoEstoque.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\projetos\\sismarket\\Views\\Gestao\\Index.cshtml",
       "TargetPath": "Views\\Gestao\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\projetos\\sismarket\\Views\\Gestao\\Estoque.cshtml",
+      "TargetPath": "Views\\Gestao\\Estoque.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -14,7 +14,7 @@
     <span asp-validation-for="Nome"></span><br>
 
     <label asp-for="ProdutoID">Produto</label>
-    <select class="form-control" asp-for="ProdutoID" asp-items="@(new SelectList(@ViewBag.Produtos, "Id", "Nome"))"></select>
+    <select class="form-control" asp-for="ProdutoID" asp-items='@(new SelectList(@ViewBag.Produtos, "Id", "Nome"))'></select>
     <br>
 
     <label asp-for="Porcentagem">Porcentagem</label>

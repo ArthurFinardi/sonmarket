@@ -4,6 +4,7 @@ using Sismarket.Data;
 using Sismarket.DTO;
 using System.Linq;
 using Sismarket.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace sismarket.Controllers
 {
@@ -18,7 +19,13 @@ namespace sismarket.Controllers
         public IActionResult Salvar(ProdutoDTO pProduto){
             if(ModelState.IsValid){
                 Produto produto = new Produto();
+                produto.Nome = pProduto.Nome;
+                produto.Categoria = database.Categorias.First(categoria => categoria.Id == pProduto.CategoriaID);
+                produto.Fornecedor = database.Fornecedores.First(fornecedor => fornecedor.Id == pProduto.FornecedorID);
 
+                produto.PrecodeCusto = pProduto.PrecodeCusto;
+                produto.PrecodeVenda = pProduto.PrecodeVenda;
+                produto.Medicao = pProduto.Medicao;
                 produto.Status = true;
 
                 database.Produtos.Add(produto);
@@ -55,6 +62,21 @@ namespace sismarket.Controllers
                 database.SaveChanges();
             }
             return RedirectToAction("Produtos", "Gestao");
+        }
+        [HttpPost]
+        public IActionResult Produto(int id){
+            if(id > 0){
+                var produto = database.Produtos.Include(p => p.Categoria).Include(p => p.Fornecedor).First(p => p.Id == id);
+                if(produto != null){
+                    return Json(produto);
+                }
+                else{
+                    return Json(null);
+                }
+            }
+            else{
+                return Json(null);
+            }
         }
     }
 }
