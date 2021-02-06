@@ -67,7 +67,33 @@ namespace sismarket.Controllers
         public IActionResult Produto(int id){
             if(id > 0){
                 var produto = database.Produtos.Include(p => p.Categoria).Include(p => p.Fornecedor).First(p => p.Id == id);
+                //verifica se existe ou não estqoue daquele determinado produto
                 if(produto != null){
+                    var estoque = database.Estoques.First(e => e.Produto.Id == produto.Id);
+                    //verifica se existe estoque para o produto
+                    if(estoque == null){
+                        produto = null;
+                    }
+                }
+
+                if(produto != null){
+                
+                //verfica se a promoção é válida
+                var promocao = database.Promocoes.First(p => p.Id == produto.Id && p.Status == true);
+                //se a promoção realmente existir
+                if(promocao != null){
+                    
+                    try
+                    {
+                        //cálculo de promoção sobre o produto
+                        promocao.PrecodeVenda -= (produto.PrecodeVenda * (promocao.Porcentagem));
+                    }
+                    catch (Exception ex)
+                    {
+                        promocao = null;
+                        throw;
+                    }
+                }
                     return Json(produto);
                 }
                 else{
